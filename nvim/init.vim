@@ -1,11 +1,11 @@
-"  _                                            _        _   _  _____ ___  ___
-" | |                                          ( )      | | | ||_   _||  \/  |
-" | |      ___   _ __   ___  _ __   ____  ___  |/  ___  | | | |  | |  | .  . |
-" | |     / _ \ | '__| / _ \| '_ \ |_  / / _ \    / __| | | | |  | |  | |\/| |
-" | |____| (_) || |   |  __/| | | | / / | (_) |   \__ \ \ \_/ / _| |_ | |  | |
-" \_____/ \___/ |_|    \___||_| |_|/___| \___/    |___/  \___/  \___/ \_|  |_/
-
-
+"_______  _______ _________          _______  _______          _________ _______
+"(  ___  )(  ____ \\__   __/|\     /|(  ____ \(  ____ )|\     /|\__   __/(       )
+"| (   ) || (    \/   ) (   | )   ( || (    \/| (    )|| )   ( |   ) (   | () () |
+"| (___) || (__       | |   | (___) || (__    | (____)|| |   | |   | |   | || || |
+"|  ___  ||  __)      | |   |  ___  ||  __)   |     __)( (   ) )   | |   | |(_)| |
+"| (   ) || (         | |   | (   ) || (      | (\ (    \ \_/ /    | |   | |   | |
+"| )   ( || (____/\   | |   | )   ( || (____/\| ) \ \__  \   /  ___) (___| )   ( |
+"|/     \|(_______/   )_(   |/     \|(_______/|/   \__/   \_/   \_______/|/     \|
 
 " ---- Basic Settings ----------------------------------------------------------
 set autochdir                              " cd to the working dir of the open file
@@ -13,7 +13,7 @@ set autoindent                             " copy indent from current line to ne
 set autowrite                              " auto save on some specific commands
 set breakindent                            " wrapped lines will continue being indented
 set breakindentopt=shift:2,min:40,sbr      " see options.txt
-set clipboard=unnamedplus                  " place yanked text in global clipboard
+set clipboard+=unnamedplus                  " place yanked text in global clipboard
 set concealcursor=""                       " set mode in which cursor line is also concealed
 set conceallevel=1                         " vim's conceal
 set confirm                                " ?
@@ -56,7 +56,7 @@ hi SpellBad cterm=underline
 
 
 " ---- Plugins -----------------------------------------------------------------
-let g:python3_host_prog = '/Library/Frameworks/Python.framework/Versions/3.11/bin/python3'
+let g:python3_host_prog = '/usr/bin/python3'
 call plug#begin('~/.vim/plugged/')
 " Status bar {
 Plug 'vim-airline/vim-airline'
@@ -109,7 +109,6 @@ let g:airline#extensions#tabline#tab_nr_type = 1  " buffer/tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 " how file paths are shown (they're not)
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:python3_host_prog = $HOME . '/.local/venv/nvim/bin/python'
 let g:airline_powerline_fonts = 1             " powerline integration
 let g:airline_theme='onedark'               " status bar theme
 let g:airline#extensions#tagbar#enabled = 1   " show where in file you are
@@ -129,8 +128,8 @@ let g:rainbow_active = 1
 " Vimtex
 filetype plugin indent on
 syntax enable
-let g:vimtex_view_method = 'skim'
-let g:vimtex_compiler_method = 'latexmk'
+let g:vimtex_compiler_method= 'latexmk'
+let g:vimtex_view_method= 'sioyek'
 let maplocalleader = ","
 
 "
@@ -140,6 +139,7 @@ autocmd FileType html,css EmmetInstall
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<c-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<c-k>'
+
 " ---- Keybindings -------------------------------------------------------------
 " Quality of life {
 inoremap jk <Esc>
@@ -177,5 +177,5 @@ if !has('gui_running')
   augroup END
 endif
 
-:luafile /Users/marco/.config/nvim/lspConfig.lua
+:luafile /home/aether/.config/nvim/lspConfig.lua
 
